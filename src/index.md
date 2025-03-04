@@ -1,18 +1,19 @@
 ---
 layout: layout.html
 pageTitle: New York Today
+pageClass: home
 navTitle: Home
 tags: page
 ---
 
 ## Articles
 
-> A blockquote will appear here
+<button>Show Stories</button>
 
-A list of articles
+<main class="stories"></main>
 
-- bullet one
-- bullet two
+{% for page in collections.page %}
 
-1. one
-1. two
+<h2><a href="{{ page.url }}">{{ page.data.pageTitle | upcase }}</a></h2>
+<em>{{ page.date | date: "%Y-%m-%d" }}</em>
+{% endfor %}
